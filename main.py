@@ -73,3 +73,28 @@ def main():      ## main game loop
   player["name"] = input "\nEnter your trick-or-treater's name: ").strip()
   if not player["name"]:
     player["name"] = "Spooky Coder"
+  while True:
+    show_status()
+
+    if player["fear_level" >= 100:
+      print("\n😱 YOU GOT TOO SCARED! You dropped your candy and ran home screaming. GAME OVER.")
+      break
+    if player["stamina"] <=0:
+      print("\n😴 You collapsed from exhaustion. The monsters got your candy. GAME OVER.")
+      break
+    if len(player["candy_bag"]) >=10:
+      print(f"\n🎉 CONGRATULATIONS {player['name']}! Your bag is full of 10+ treats. You win Halloween!")
+      break
+    print("\nWhat would you like to do?")
+    print("1) Knock on the next house door")
+    print("2) Eat a piece of candy (+15 Stamina, -1 Candy)")
+    print("3) Quit Game")
+
+    choice = input("> ").strip()
+
+    if choice == "1":
+      knock_on_door()
+    elif choice == "2":
+      if player["candy_bag"]:
+        removed_candy = player["candy_bag"].pop(0)
+        player["stamina"] = min(100, player["stamina"] + 15)
