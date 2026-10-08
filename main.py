@@ -98,3 +98,16 @@ def main():      ## main game loop
       if player["candy_bag"]:
         removed_candy = player["candy_bag"].pop(0)
         player["stamina"] = min(100, player["stamina"] + 15)
+        print(f"😋 You ate a {removed_candy}. Tastes good! (+15 Stamina)")
+      else:
+        print("❌ You don't have any candy to eat yet!")
+    elif choice == "3":
+      print("\n👋 Thanks for playing! Happy Halloween!")
+    else:
+      print("❌ Invalid selection. Try again.")
+
+    time.sleep(1.5)
+    clear_console()
+
+if __name__ == "__main__":
+  main()
